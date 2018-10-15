@@ -164,6 +164,6 @@ public class ListaAlunosActivity extends AppCompatActivity {
         //Adapter especializado Alunos
         AlunosAdapter adapter = new AlunosAdapter(this, alunos);
         listaAlunos.setAdapter(adapter);
-        
+
     }
 }
