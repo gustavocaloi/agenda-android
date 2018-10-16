@@ -32,7 +32,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".FormularioActivity"></activity>
+        <activity android:name=".FormularioActivity" />
 
         <receiver android:name=".receiver.SMSReceiver">
             <intent-filter>
@@ -40,7 +40,9 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".ProvasActivity"></activity>
+        <activity android:name=".ProvasActivity" />
+        <activity android:name=".ProvasTabletActivity" />
+        <activity android:name=".DetalhesProvasActivity"></activity>
     </application>
 
 </manifest>

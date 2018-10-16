@@ -1,5 +1,7 @@
 package com.example.gustavocaloi.agenda;
 
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -22,26 +24,10 @@ public class ProvasActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_provas);
 
-        List<String> topicosPort = Arrays.asList("Sujeito", "Obj Direto", "Obj Indireto" );
-        Prova provaPortugues = new Prova("Portugeus", "25/05/2018", topicosPort);
-
-        List<String> topicosMat = Arrays.asList("Eq Segundo Grau", "Geometria", "Derivada" );
-        Prova provaMatematica = new Prova("Matematica", "30/05/2018", topicosMat);
-
-
-        List<Prova> provas = Arrays.asList(provaPortugues, provaMatematica);
-        ArrayAdapter<Prova> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, provas);
-
-        ListView lista = (ListView) findViewById(R.id.provas_lista);
-        lista.setAdapter(adapter);
-
-        lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Prova prova = (Prova) parent.getItemAtPosition(position);
-                Toast.makeText(ProvasActivity.this, "Clicou na prova" + prova, Toast.LENGTH_SHORT).show();
-            }
-        });
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction tx = fragmentManager.beginTransaction();
+        tx.replace(R.id.frame_principal, new ListaProvaFragment());
+        tx.commit();
 
     }
 }
