@@ -70,15 +70,19 @@ public class ListaAlunosActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_enviar_notas:
-
-                //Chama thread background
                 new EnviaAlunosTask(this).execute();
                 break;
 
             case R.id.menu_baixar_provas:
-                    Intent vaiParaProvas = new Intent(this, ProvasActivity.class);
-                    startActivity(vaiParaProvas);
-                    break;
+                Intent vaiParaProvas = new Intent(this, ProvasActivity.class);
+                startActivity(vaiParaProvas);
+                break;
+
+            case R.id.menu_mapa:
+                Intent vaiParaMapa = new Intent(this, MapsActivity.class);
+                startActivity(vaiParaMapa);
+                break;
+
         }
         return super.onOptionsItemSelected(item);
     }
@@ -115,7 +119,7 @@ public class ListaAlunosActivity extends AppCompatActivity {
 
         //Sub-menu SMS
         MenuItem itemSMS = menu.add("Enviar SMS");
-        Intent intentSMS = new Intent(Intent.ACTION_VIEW) ;
+        Intent intentSMS = new Intent(Intent.ACTION_VIEW);
         intentSMS.setData(Uri.parse("sms:" + aluno.getTelefone()));
         itemSMS.setIntent(intentSMS);
 
