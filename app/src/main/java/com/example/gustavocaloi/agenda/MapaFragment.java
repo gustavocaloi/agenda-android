@@ -50,6 +50,8 @@ public class MapaFragment extends SupportMapFragment implements OnMapReadyCallba
                 GoogleMap.addMarker(marcador);
             }
             alunoDAO.close();
+
+            //new Localizador(getContext(), GoogleMap);
         }
 
     }
